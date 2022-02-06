@@ -6,17 +6,17 @@ const keyData = fs.readFileSync('./p-key.txt', {
 })
 
 module.exports = {
-  defaultNetwork: 'hardhat',
+  defaultNetwork: 'mumbai',
   networks:{
     hardhat:{
       chainId: 1337
     },
     mumbai:{
-      url:`https://polygon-mumbai.infura.io/v3/${projectId}`,
+      url:`https://rpc-mumbai.maticvigil.com`,
       accounts:[keyData]
     },
     mainnet: {
-      url:`https://mainnet.infura.io/v3/${projectId}`,
+      url:`https://polygon-mainnet.infura.io/v3/${projectId}`,
       accounts:[keyData]
     }
   },

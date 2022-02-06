@@ -19,7 +19,7 @@ export default function Home() {
     // what we want to load:
     // ***provider, tokenContract, marketContract, data for our marketItems***
 
-    const provider = new ethers.providers.JsonRpcProvider("http://localhost:8545")
+    const provider = new ethers.providers.JsonRpcProvider("https://rpc-mumbai.maticvigil.com")
     const tokenContract = new ethers.Contract(nftaddress, AgroNFT.abi, provider)
     const marketContract = new ethers.Contract(nftmarketaddress, MandiHouse.abi, provider)
     const data = await marketContract.fetchMarketTokens()
@@ -53,7 +53,7 @@ export default function Home() {
     const signer = provider.getSigner()
     const contract = new ethers.Contract(nftmarketaddress, MandiHouse.abi, signer)
 
-    const price = ethers.utils.parseUnits(nft.price.toString(), 'matic')
+    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
     const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
       value: price
     })
@@ -62,7 +62,7 @@ export default function Home() {
   }
 
   if (loadingState === 'loaded' && !nfts.length) return (<h1
-    className='text-3x-1 mb-4 font-bold text-white'>No NFts in marketplace</h1>)
+    className='text-3x-1 mb-4 font-bold text-white'>No NFTs in marketplace</h1>)
 
   function returnUrl(nft) {
     if (nft.type == "text") {

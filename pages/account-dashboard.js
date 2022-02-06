@@ -59,7 +59,7 @@ export default function AccountDashBoard() {
   }
   
   if(loadingState === 'loaded' && !nfts.length) return (<h1
-  className='px-20 py-7 text-4x1'>You have not minted any NFTs!</h1>)
+  className='px-20 py-7 text-4x1 font-bold text-white'>You have not minted any NFTs!</h1>)
 
   return (
     <div className='p-4'>
